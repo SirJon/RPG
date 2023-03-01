@@ -1,23 +1,55 @@
 
 import { useSelector, useDispatch } from "react-redux";
-import { changeDexterity } from "../../store/slice/personageSlice";
+import {
+  changeDexterity,
+  upStealth,
+  upArchery,
+} from "../../store/slice/gameSlice";
 
 const Dexterity = () => {
   const dispatch = useDispatch();
-  const personage = useSelector((state) => state.personage);
-  const { dexterity } = personage;
+  const stateDexterity = useSelector((state) => state.game.dexterity);
+  const { base, skills: { stealth, archery } } = stateDexterity;
 
   const changeDexterityHandler = (e) => {
-    dispatch(changeDexterity(e.target.value))
+    dispatch(changeDexterity(Number(e.target.value)));
   };
+
+  const upStealthHandler = () => {
+    dispatch(upStealth())
+  };
+
+  const upArcheryHandler = () => {
+    dispatch(upArchery())
+  };
+
   return (
     <div>
       <span>Ловкость</span>
       <input
         type="number"
-        value={dexterity}
+        value={base}
         onChange={(e) => changeDexterityHandler(e)}
       />
+      <div>
+        <span>Стелс: {stealth}</span>
+        <button
+          type="button"
+          onClick={() => upStealthHandler()}
+        >
+          Тренировать стелс
+        </button>
+      </div>
+      <div>
+        <span>Стрельба из лука: {archery}</span>
+        <button
+          type="button"
+          onClick={() => upArcheryHandler()}
+        >
+          Тренировать струльбу
+        </button>
+      </div>
+      <br />
     </div>
   )
 };

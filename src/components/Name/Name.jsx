@@ -1,15 +1,27 @@
 
 import { useSelector, useDispatch } from "react-redux";
-import { changeName } from "../../store/slice/personageSlice";
+import { changeName, getDamage } from "../../store/slice/gameSlice";
 
 const Name = () => {
   const dispatch = useDispatch();
-  const personage = useSelector((state) => state.personage);
-  const { name } = personage;
+  const state = useSelector((state) => state.game);
+  const {
+    name,
+    options: {
+      life,
+      evasion,
+      energy,
+    }
+  } = state;
 
   const changeNameHandler = (e) => {
     dispatch(changeName(e.target.value))
   };
+
+  const getDamageHandler = () => {
+    dispatch(getDamage())
+  };
+
   return (
     <div>
       <span>Имя</span>
@@ -19,6 +31,22 @@ const Name = () => {
         placeholder="Имя персонажа"
         onChange={(e) => changeNameHandler(e)}
       />
+      <div>
+        <span>Жизненная Сила: {life}</span>
+        <button
+          type="button"
+          onClick={() => getDamageHandler()}
+        >
+          Получить урон
+        </button>
+      </div>
+      <div>
+        <span>Уклонение: {evasion}</span>
+      </div>
+      <div>
+        <span>Энергичность: {energy}</span>
+      </div>
+      <br />
     </div>
   )
 };

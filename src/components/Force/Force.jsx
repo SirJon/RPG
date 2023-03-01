@@ -1,17 +1,17 @@
 
 import { useSelector, useDispatch } from "react-redux";
-import { changeForce, upForcePower } from "../../store/slice/forceSlice";
+import { changeForce, upForcePower } from "../../store/slice/gameSlice";
 
 const Force = () => {
   const dispatch = useDispatch();
-  const force = useSelector((state) => state.force);
-  const { index, skills: { power } } = force;
+  const state = useSelector((state) => state.game.force);
+  const { base, skills: { power } } = state;
 
   const changeForceHandler = (e) => {
-    dispatch(changeForce(Number(e.target.value)))
+    dispatch(changeForce(Number(e.target.value)));
   };
 
-  const changePowerHandler = () => {
+  const upPowerHandler = () => {
     dispatch(upForcePower())
   };
   return (
@@ -19,14 +19,19 @@ const Force = () => {
       <span>Сила</span>
       <input
         type="number"
-        value={index}
+        value={base}
         onChange={(e) => changeForceHandler(e)}
       />
-      <span>Атака: {power}</span>
-      <button
-        type="button"
-        onClick={() => changePowerHandler()}
-      >Тренировать атаку</button>
+      <div>
+        <span>Атака: {power}</span>
+        <button
+          type="button"
+          onClick={() => upPowerHandler()}
+        >
+          Тренировать атаку
+        </button>
+      </div>
+      <br />
     </div>
   )
 };
