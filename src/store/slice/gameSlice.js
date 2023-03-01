@@ -194,6 +194,10 @@ const gameSlice = createSlice({
       };
       changeLife(state);
     },
+
+    uploadNewPersonage(state, action) {
+      return action.payload;
+    }
   },
 });
 
@@ -219,6 +223,8 @@ export const {
   upManipulation,
 
   getDamage,
+
+  uploadNewPersonage,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;
