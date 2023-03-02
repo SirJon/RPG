@@ -6,8 +6,12 @@ $focus: #d5ae4b;
 
 body {
   font-family: "Dela Gothic One", cursive;
-  background-color: rgba(0, 0, 0, 0.193);
-  padding: 0 40px;
+}
+
+input,
+label {
+  color: inherit;
+  font-family: "Dela Gothic One", cursive !important;
 }
 
 @mixin info {

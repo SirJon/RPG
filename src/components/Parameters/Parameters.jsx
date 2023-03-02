@@ -7,6 +7,7 @@ import Download from "../Upload/Download/Download";
 
 import style from './Parameters.module.scss';
 import chain from "./image/chain.webp";
+import background from "./image/background.webp";
 
 import { changeName } from "../../store/slice/gameSlice";
 import { changeForce } from "../../store/slice/gameSlice";
@@ -59,19 +60,24 @@ const Parameters = () => {
   return (
     <section className={style.conteiner}>
       <div className={style.chains}>
-        <img 
-        src={chain} 
-        alt="chain"
-        className={style["img--chain"]}
+        <img
+          src={chain}
+          alt="chain"
+          className={style["img--chain"]}
         />
-        <img 
-        src={chain} 
-        alt="chain"
-        className={style["img--chain"]}
+        <img
+          src={chain}
+          alt="chain"
+          className={style["img--chain"]}
         />
       </div>
       <div className={style.tree}>
-        <div>
+        <img
+          src={background}
+          alt="background"
+          className={style.background}
+        />
+        <div className={style.head}>
           <Download />
           <span
             className={style.span}
@@ -81,13 +87,13 @@ const Parameters = () => {
         </div>
         <div>
           <TextField
-            className={style.input}
+            className={style.name}
             required
             label="Имя персонажа"
             value={name}
             onChange={(e) => changeNameHandler(e)}
           />
-          <div>
+          <div className={style.base}>
             <TextField
               className={style.input}
               label="Сила"

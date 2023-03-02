@@ -1,0 +1,22 @@
+@use "/src/assets/style/global.scss" as *;
+
+.container{
+  display: flex;
+  gap: 14px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.min {
+  width: 157px;
+  height: 157px;
+}
+
+.big {
+  width: 501px;
+  height: 529px;
+}
