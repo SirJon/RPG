@@ -1,24 +1,21 @@
-// import './App.scss';
+import './App.module.scss';
 
-import Name from "../components/Name/Name";
-import Force from "../components/Force/Force";
-import Dexterity from "../components/Dexterity/Dexterity";
-import Intellect from "../components/Intellect/Intellect";
-import Charisma from "../components/Charisma/Charisma";
-import Upload from "../components/Upload/Upload";
+import Parameters from "../components/Parameters/Parameters";
+import Save from "../components/Upload/Save/Save";
+import Skills from '../components/Skills/Skills';
+import Options from '../components/Options/Options';
+import Damage from '../components/Damage/Damage';
 
 function App() {
 
   return (
-    <>
-      <Upload />
-      <h1>App page</h1>
-      <Name />
-      <Force />
-      <Dexterity />
-      <Intellect />
-      <Charisma />
-    </>
+    <section>
+      <Parameters />
+      <Save />
+      <Skills />
+      <Options />
+      <Damage />
+    </section>
 
   );
 }

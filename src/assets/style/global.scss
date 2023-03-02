@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap");
+
+//color
+$main: #8e7638;
+$focus: #d5ae4b;
+
+body {
+  font-family: "Dela Gothic One", cursive;
+  background-color: rgba(0, 0, 0, 0.193);
+  padding: 0 40px;
+}
+
+@mixin info {
+  background: rgba(2, 2, 2, 0.53);
+  backdrop-filter: blur(7px);
+
+  border-radius: 5px;
+  input,
+  label {
+    color: $main;
+  }
+  color: $main;
+}

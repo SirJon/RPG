@@ -1,0 +1,15 @@
+@use "/src/assets/style/global.scss" as *;
+
+.label {
+  @include info;
+
+  padding: 9px;
+  padding-right: 17px;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+
+  cursor: pointer;
+}

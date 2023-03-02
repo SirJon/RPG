@@ -5,7 +5,6 @@ const EVASION = 10;
 
 const initialState = {
   name: ``,
-  test: 0,
   options: {
     life: LIFE,
     evasion: EVASION,

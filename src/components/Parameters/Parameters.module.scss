@@ -1,0 +1,34 @@
+@use "/src/assets/style/global.scss" as *;
+
+.conteiner {
+  position: relative;
+}
+
+.chains{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tree{
+  background-image: url("./image/tree2.webp");
+  background-size: cover;
+
+  border-radius: 5px;
+  padding: 27px 21px;
+
+  position: relative;
+  top: -10px;
+}
+
+.input {
+  @include info;
+}
+.span {
+  @include info;
+}
+
+.img--chain{
+  height: 65px;
+}
