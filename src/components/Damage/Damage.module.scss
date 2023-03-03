@@ -1,0 +1,19 @@
+@use "/src/assets/style/global.scss" as *;
+
+.container {
+  align-self: flex-end;
+}
+
+.button {
+  background: linear-gradient(180deg, #ffc83c 0%, #c99100 80.73%);
+  border-radius: 10px;
+
+  font-size: 36px;
+  line-height: 52px;
+
+  font-family: inherit;
+  padding: 17px 35px;
+  padding-right: 100px;
+
+  cursor: pointer;
+}

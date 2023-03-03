@@ -1,0 +1,10 @@
+@use "/src/assets/style/global.scss" as *;
+
+.container{
+  @include info;
+
+  display: flex;
+  justify-content: space-between;
+  min-width: 220px;
+  padding: 8px 9px;
+}

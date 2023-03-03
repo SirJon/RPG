@@ -3,9 +3,13 @@
 //color
 $main: #8e7638;
 $focus: #d5ae4b;
+$black: #000000;
+$error: tomato;
 
 body {
   font-family: "Dela Gothic One", cursive;
+  color: $main;
+  font-weight: 700;
 }
 
 input,
@@ -22,6 +26,25 @@ label {
   input,
   label {
     color: $main;
+    font-weight: 700;
   }
   color: $main;
+  font-weight: 700;
+}
+
+@mixin background {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  border-radius: 5px;
+}
+
+@mixin chains {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
 }

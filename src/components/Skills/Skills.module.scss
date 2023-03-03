@@ -1,7 +1,8 @@
 @use "/src/assets/style/global.scss" as *;
 
-.conteiner {
+.container {
   position: relative;
+  top: -20px
 }
 
 .chains {
@@ -18,25 +19,18 @@
 
   position: relative;
   top: -10px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 15px;
 }
 
 .input {
   @include info;
 }
 
-.name {
-  @include info;
-  font-size: 36px;
-  line-height: 52px;
-  width: 70%;
-}
-
 .img--chain {
   height: 65px;
-}
-
-.head{
-  margin-bottom: 20px;
 }
 
 .base{

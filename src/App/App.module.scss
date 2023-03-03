@@ -12,3 +12,18 @@
   position: relative;
   display: flex;
 }
+
+.left{
+  margin: 0 20px 20px;
+}
+
+.right{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.option{
+  display: flex;
+  justify-content: space-between;
+}

@@ -6,23 +6,28 @@ import Skills from '../components/Skills/Skills';
 import Options from '../components/Options/Options';
 import Damage from '../components/Damage/Damage';
 import Photo from '../components/Photo/Photo';
+import Life from '../components/Life/Life';
+
 import background from "./image/background.webp";
 
 function App() {
 
   return (
     <section className={style.container}>
-      <div>
+      <div className={style.left}>
         <Parameters />
         <Photo />
-      </div>
-      <div>
         <Save />
+      </div>
+      <div className={style.right}>
+        <div className={style.option}>
+          <Options />
+          <Life />
+        </div>
         <Skills />
-        <Options />
         <Damage />
       </div>
-      <img src={background} alt="background" className={style.background}/>
+      <img src={background} alt="background" className={style.background} />
     </section>
 
   );

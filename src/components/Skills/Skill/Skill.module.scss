@@ -1,0 +1,54 @@
+@use "/src/assets/style/global.scss" as *;
+
+.container {
+  position: relative;
+  display: flex;
+  gap: 15px;
+}
+
+.info {
+  background: rgba(2, 2, 2, 0.53);
+  backdrop-filter: blur(7px);
+  border-radius: 5px;
+
+  padding: 10px 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.name {
+  font-size: 22px;
+  line-height: 24px;
+  margin-bottom: 5px;
+}
+
+.button {
+  background: linear-gradient(180deg, #ffc83c 0%, #c99100 80.73%);
+  border-radius: 10px;
+  color: $black;
+  padding: 5px 12px;
+  font-family: inherit;
+  margin-left: auto;
+
+  cursor: pointer;
+  &:disabled {
+    background: linear-gradient(180deg, #858381 0%, #665d48 80.73%);
+    cursor: auto;
+  }
+}
+
+.upskill {
+  margin-top: 20px;
+  display: flex;
+}
+
+.error {
+  font-size: 10px;
+  line-height: 15px;
+  max-width: 120px;
+
+  color: $error;
+}

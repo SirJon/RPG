@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import Download from "../Upload/Download/Download";
 
 import style from './Parameters.module.scss';
-import chain from "./image/chain.webp";
+import chain from "../../assets/image/chain.webp";
 import background from "./image/background.webp";
 
 import { changeName } from "../../store/slice/gameSlice";
@@ -20,9 +20,6 @@ const Parameters = () => {
   const state = useSelector((state) => state.game);
   const {
     name,
-    options: {
-      life,
-    },
     force: {
       base: force,
     },
@@ -79,11 +76,6 @@ const Parameters = () => {
         />
         <div className={style.head}>
           <Download />
-          <span
-            className={style.span}
-          >
-            Жизненная сила: {life}
-          </span>
         </div>
         <div>
           <TextField

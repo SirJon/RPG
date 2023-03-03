@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
+import style from "./Damage.module.scss";
+
 import { getDamage } from '../../store/slice/gameSlice';
 
 const Damage = () => {
@@ -11,18 +11,14 @@ const Damage = () => {
     dispatch(getDamage())
   };
   return (
-    <Box
-      sx={{
-        m: 1,
-      }}>
-      <Button
-        variant="contained"
-        color="error"
+    <div className={style.container}>
+      <button
+        className={style.button}
         onClick={() => getDamageHandler()}
       >
         Атаковать персонажа
-      </Button>
-    </Box >
+      </button>
+    </div>
   )
 };
 

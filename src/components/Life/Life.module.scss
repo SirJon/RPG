@@ -1,0 +1,26 @@
+@use "/src/assets/style/global.scss" as *;
+
+.container{
+}
+
+.chains{
+  @include chains;
+}
+
+.tree{
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -10px;
+  padding: 30px 20px;
+}
+
+.background {
+  @include background;
+}
+
+.img--chain {
+  height: 65px;
+}
