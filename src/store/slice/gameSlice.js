@@ -72,7 +72,7 @@ const gameSlice = createSlice({
             power
           }
         }
-       } = state;
+      } = state;
       if (payload < base && power > base - STEP && base - STEP >= MIN_LEVEL) {
         state.force.skills.power = state.force.base - STEP;
       };
@@ -84,111 +84,232 @@ const gameSlice = createSlice({
         : changeLife(state);
     },
     upForcePower(state) {
-      if (((state.force.skills.power + STEP) <= state.force.base) && ((state.force.skills.power + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        force: {
+          base,
+          skills: {
+            power,
+          },
+        },
+      } = state;
+      if (((power + STEP) <= base) && ((power + STEP) <= MAX_LEVEL_SKILL)) {
         state.force.skills.power = state.force.skills.power + STEP;
       }
     },
 
     changeDexterity(state, action) {
-      if (action.payload < state.dexterity.base && state.dexterity.skills.stealth > state.dexterity.base - STEP && state.dexterity.base - STEP >= MIN_LEVEL) {
+      const { payload } = action;
+      const {
+        dexterity: {
+          base,
+          skills: {
+            stealth,
+            archery
+          }
+        }
+      } = state;
+      if (payload < base && stealth > base - STEP && base - STEP >= MIN_LEVEL) {
         state.dexterity.skills.stealth = state.dexterity.base - STEP;
       };
-      if (action.payload < state.dexterity.base && state.dexterity.skills.archery > state.dexterity.base - STEP && state.dexterity.base - STEP >= MIN_LEVEL) {
+      if (payload < base && archery > base - STEP && base - STEP >= MIN_LEVEL) {
         state.dexterity.skills.archery = state.dexterity.base - STEP;
       };
-      action.payload < MIN_LEVEL
+      payload < MIN_LEVEL
         ? state.dexterity.base = MIN_LEVEL
-        : state.dexterity.base = action.payload;
+        : state.dexterity.base = payload;
 
-      if (action.payload >= 0) {
-        state.options.evasion = EVASION + action.payload;
+      if (payload >= 0) {
+        state.options.evasion = EVASION + payload;
       };
 
       changeEnergy(state);
     },
     upStealth(state) {
-      if (((state.dexterity.skills.stealth + STEP) <= state.dexterity.base) && ((state.dexterity.skills.stealth + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        dexterity: {
+          base,
+          skills: {
+            stealth,
+          }
+        }
+      } = state;
+      if (((stealth + STEP) <= base) && ((stealth + STEP) <= MAX_LEVEL_SKILL)) {
         state.dexterity.skills.stealth = state.dexterity.skills.stealth + STEP;
       };
     },
     upArchery(state) {
-      if (((state.dexterity.skills.archery + STEP) <= state.dexterity.base) && ((state.dexterity.skills.archery + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        dexterity: {
+          base,
+          skills: {
+            archery,
+          }
+        }
+      } = state;
+      if (((archery + STEP) <= base) && ((archery + STEP) <= MAX_LEVEL_SKILL)) {
         state.dexterity.skills.archery = state.dexterity.skills.archery + STEP;
       };
     },
 
     changeIntellect(state, action) {
-      if (action.payload < state.intellect.base && state.intellect.skills.learnability > state.intellect.base - STEP && state.intellect.base - STEP >= MIN_LEVEL) {
+      const { payload } = action;
+      const {
+        intellect: {
+          base,
+          skills: {
+            learnability,
+            survival,
+            medicine,
+          }
+        }
+      } = state;
+      if (payload < base && learnability > base - STEP && base - STEP >= MIN_LEVEL) {
         state.intellect.skills.learnability = state.intellect.base - STEP;
       };
-      if (action.payload < state.intellect.base && state.intellect.skills.survival > state.intellect.base - STEP && state.intellect.base - STEP >= MIN_LEVEL) {
+      if (payload < base && survival > base - STEP && base - STEP >= MIN_LEVEL) {
         state.intellect.skills.survival = state.intellect.base - STEP;
       };
-      if (action.payload < state.intellect.base && state.intellect.skills.medicine > state.intellect.base - STEP && state.intellect.base - STEP >= MIN_LEVEL) {
+      if (payload < base && medicine > base - STEP && base - STEP >= MIN_LEVEL) {
         state.intellect.skills.medicine = state.intellect.base - STEP;
       };
-      action.payload < MIN_LEVEL
+      payload < MIN_LEVEL
         ? state.intellect.base = MIN_LEVEL
-        : state.intellect.base = action.payload;
+        : state.intellect.base = payload;
 
       changeEnergy(state);
     },
     upLearnability(state) {
-      if (((state.intellect.skills.learnability + STEP) <= state.intellect.base) && ((state.intellect.skills.learnability + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        intellect: {
+          base,
+          skills: {
+            learnability,
+          }
+        }
+      } = state;
+      if (((learnability + STEP) <= base) && ((learnability + STEP) <= MAX_LEVEL_SKILL)) {
         state.intellect.skills.learnability = state.intellect.skills.learnability + STEP;
       };
     },
     upSurvival(state) {
-      if (((state.intellect.skills.survival + STEP) <= state.intellect.base) && ((state.intellect.skills.survival + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        intellect: {
+          base,
+          skills: {
+            survival,
+          }
+        }
+      } = state;
+      if (((survival + STEP) <= base) && ((survival + STEP) <= MAX_LEVEL_SKILL)) {
         state.intellect.skills.survival = state.intellect.skills.survival + STEP;
       };
     },
     upMedicine(state) {
-      if (((state.intellect.skills.medicine + STEP) <= state.intellect.base) && ((state.intellect.skills.medicine + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        intellect: {
+          base,
+          skills: {
+            medicine,
+          }
+        }
+      } = state;
+      if (((medicine + STEP) <= base) && ((medicine + STEP) <= MAX_LEVEL_SKILL)) {
         state.intellect.skills.medicine = state.intellect.skills.medicine + STEP;
       };
     },
 
     changeCharisma(state, action) {
-      if (action.payload < state.charisma.base && state.charisma.skills.intimidation > state.charisma.base - STEP && state.charisma.base - STEP >= MIN_LEVEL) {
+      const { payload } = action;
+      const {
+        charisma: {
+          base,
+          skills: {
+            intimidation,
+            insight,
+            appearance,
+            manipulation,
+          }
+        }
+      } = state;
+      if (payload < base && intimidation > base - STEP && base - STEP >= MIN_LEVEL) {
         state.charisma.skills.intimidation = state.charisma.base - STEP;
       };
-      if (action.payload < state.charisma.base && state.charisma.skills.insight > state.charisma.base - STEP && state.charisma.base - STEP >= MIN_LEVEL) {
+      if (payload < base && insight > base - STEP && base - STEP >= MIN_LEVEL) {
         state.charisma.skills.insight = state.charisma.base - STEP;
       };
-      if (action.payload < state.charisma.base && state.charisma.skills.appearance > state.charisma.base - STEP && state.charisma.base - STEP >= MIN_LEVEL) {
+      if (payload < base && appearance > base - STEP && base - STEP >= MIN_LEVEL) {
         state.charisma.skills.appearance = state.charisma.base - STEP;
       };
-      if (action.payload < state.charisma.base && state.charisma.skills.manipulation > state.charisma.base - STEP && state.charisma.base - STEP >= MIN_LEVEL) {
+      if (payload < base && manipulation > base - STEP && base - STEP >= MIN_LEVEL) {
         state.charisma.skills.manipulation = state.charisma.base - STEP;
       };
-      action.payload < MIN_LEVEL
+      payload < MIN_LEVEL
         ? state.charisma.base = MIN_LEVEL
-        : state.charisma.base = action.payload;
+        : state.charisma.base = payload;
     },
     upIntimidation(state) {
-      if (((state.charisma.skills.intimidation + STEP) <= state.charisma.base) && ((state.charisma.skills.intimidation + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        charisma: {
+          base,
+          skills: {
+            intimidation,
+          }
+        }
+      } = state;
+      if (((intimidation + STEP) <= base) && ((intimidation + STEP) <= MAX_LEVEL_SKILL)) {
         state.charisma.skills.intimidation = state.charisma.skills.intimidation + STEP;
       };
     },
     upInsight(state) {
-      if (((state.charisma.skills.insight + STEP) <= state.charisma.base) && ((state.charisma.skills.insight + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        charisma: {
+          base,
+          skills: {
+            insight,
+          }
+        }
+      } = state;
+      if (((insight + STEP) <= base) && ((insight + STEP) <= MAX_LEVEL_SKILL)) {
         state.charisma.skills.insight = state.charisma.skills.insight + STEP;
       };
     },
     upAppearance(state) {
-      if (((state.charisma.skills.appearance + STEP) <= state.charisma.base) && ((state.charisma.skills.appearance + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        charisma: {
+          base,
+          skills: {
+            appearance,
+          }
+        }
+      } = state;
+      if (((appearance + STEP) <= base) && ((appearance + STEP) <= MAX_LEVEL_SKILL)) {
         state.charisma.skills.appearance = state.charisma.skills.appearance + STEP;
       };
     },
     upManipulation(state) {
-      if (((state.charisma.skills.manipulation + STEP) <= state.charisma.base) && ((state.charisma.skills.manipulation + STEP) <= MAX_LEVEL_SKILL)) {
+      const {
+        charisma: {
+          base,
+          skills: {
+            manipulation,
+          }
+        }
+      } = state;
+      if (((manipulation + STEP) <= base) && ((manipulation + STEP) <= MAX_LEVEL_SKILL)) {
         state.charisma.skills.manipulation = state.charisma.skills.manipulation + STEP;
       };
     },
 
     getDamage(state) {
-      if ((state.force.base + LIFE - state.options.damage) > MIN_LEVEL) {
+      const {
+        force: {
+          base,
+        },
+        options: {
+          damage
+        }
+      } = state;
+      if ((base + LIFE - damage) > MIN_LEVEL) {
         state.options.damage = state.options.damage + STEP;
       };
       changeLife(state);
