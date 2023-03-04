@@ -92,6 +92,7 @@ const Parameters = () => {
               type="number"
               value={force}
               onChange={(e) => changeForceHandler(e)}
+              onFocus={(e) => e.target.select()}
             />
             <TextField
               className={style.input}
@@ -99,6 +100,7 @@ const Parameters = () => {
               type="number"
               value={dexterity}
               onChange={(e) => changeDexterityHandler(e)}
+              onFocus={(e) => e.target.select()}
             />
             <TextField
               className={style.input}
@@ -106,6 +108,7 @@ const Parameters = () => {
               type="number"
               value={intellect}
               onChange={(e) => changeIntellectHandler(e)}
+              onFocus={(e) => e.target.select()}
             />
             <TextField
               className={style.input}
@@ -113,6 +116,7 @@ const Parameters = () => {
               type="number"
               value={charisma}
               onChange={(e) => changeCharismaHandler(e)}
+              onFocus={(e) => e.target.select()}
             />
           </div>
         </div>
